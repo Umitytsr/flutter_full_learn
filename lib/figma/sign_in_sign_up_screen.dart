@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_full_learn/202/image_learn_202.dart';
+import 'package:flutter_full_learn/figma/widget/elevated_button.dart';
+import 'package:flutter_full_learn/figma/widget/text_button.dart';
 
-class SingUpScreen extends StatelessWidget {
-  const SingUpScreen({super.key});
+class SignInSingUpScreen extends StatelessWidget {
+  const SignInSingUpScreen({super.key});
 
   @override
   Widget build(BuildContext context) {
@@ -21,7 +23,10 @@ class SingUpScreen extends StatelessWidget {
                       mainAxisAlignment: MainAxisAlignment.center,
                       children: [
                         const Text('Silent',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),),
-                        ImagePath.water_drop.toWidget(),
+                        Padding(
+                          padding: const EdgeInsets.symmetric(horizontal:10),
+                          child: ImagePath.water_drop.toWidget(),
+                        ),
                         const Text('Moon',style: TextStyle(fontWeight: FontWeight.bold,fontSize: 16),)
                       ],
                     ),
@@ -49,29 +54,14 @@ class SingUpScreen extends StatelessWidget {
                 style: TextStyle(fontSize: 16,)),
             ),
           ),
-          Padding(
-            padding: const EdgeInsets.symmetric(horizontal:20)+EdgeInsets.only(top: 62),
-            child: SizedBox(
-              width: 374,
-              child: ElevatedButton(
-                style: ElevatedButton.styleFrom(
-                  padding: const EdgeInsets.symmetric(vertical: 15),
-                  shape: RoundedRectangleBorder(
-                  borderRadius: BorderRadius.circular(30)
-                  ),
-                ),
-                onPressed: () {},
-                child: const Text('SING UP',style: TextStyle(fontSize: 14),)),
-            ),
-          ),
+          const SizedBox(height: 62,),
+          const CustomElevatedButton(backgroundColor: Color(0xff8E97FD), text: 'SIGN UP'),
           
-          Row(
+          const Row(
             mainAxisAlignment: MainAxisAlignment.center,
             children: [
-              const Text('ALREADY HAVE AN ACCOUNT?'),
-              TextButton(
-                onPressed: () {}, 
-                child: const Text('LOG IN'))
+              Text('ALREADY HAVE AN ACCOUNT?'),
+              CustomTextButton(textColor: Color(0xff8E97FD),text: 'LOG IN',)
             ],
           )
         ],

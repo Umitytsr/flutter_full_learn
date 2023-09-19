@@ -1,43 +1,45 @@
 import 'package:flutter/material.dart';
-import 'package:flutter_full_learn/figma/util/image.dart';
 
-class CustomElevatedButton extends StatefulWidget {
-  const CustomElevatedButton({super.key});
+class CustomElevatedButton extends StatelessWidget {
+  const CustomElevatedButton({
+    Key? key,
+    required this.backgroundColor,
+    required this.text,
+    this.image,
+  }) : super(key: key);
 
-  @override
-  State<CustomElevatedButton> createState() => _CustomElevatedButtonState();
-}
+  final Color backgroundColor;
+  final String text;
+  final Widget? image;
 
-class _CustomElevatedButtonState extends State<CustomElevatedButton> {
   @override
   Widget build(BuildContext context) {
     return Padding(
             padding: const EdgeInsets.symmetric(horizontal: 20),
             child: ElevatedButton(
               style: ElevatedButton.styleFrom(
-                backgroundColor: const Color(0xff7583CA),
+                backgroundColor:backgroundColor,
                 shape: RoundedRectangleBorder(
                   borderRadius: BorderRadius.circular(30)
                 ),
               ),
               onPressed: (){}, 
               child: Padding(
-                padding: const EdgeInsets.symmetric(vertical: 19.47),
-                child: Row(
+                padding: const EdgeInsets.symmetric(vertical: 15),
+                child: (image != null) ? Row(
                   children: [
                     Padding(
                       padding: const EdgeInsets.only(right: 44.78,left: 34.84),
-                      child: ImagePath.facebook_icon.toWidget(),
+                      child: image,
                     ),
-                    const Text('CONTINUE WITH FACEBOOK')
+                    Text(text)
                   ],
-                ),
+                ) : Center(child: Text(text)),
               ) 
           ),
         );
   }
 }
-
 
 // vscode için git branch denemesi
 // asdadadsda
